@@ -54,6 +54,7 @@ struct in_addr limited_broadcast;
 
 int local_family = AF_INET;
 struct in_addr local_address;
+struct in6_addr local_address6;
 
 void (*bootp_packet_handler) (struct interface_info *,
 			      struct dhcp_packet *, unsigned,

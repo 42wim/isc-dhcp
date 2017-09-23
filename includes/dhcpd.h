@@ -799,6 +799,7 @@ struct lease_state {
 #define SV_PREFIX_LEN_MODE		87
 #define SV_DHCPV6_SET_TEE_TIMES		88
 #define SV_ABANDON_LEASE_TIME		89
+#define SV_LOCAL_ADDRESS6		91
 
 #if !defined (DEFAULT_PING_TIMEOUT)
 # define DEFAULT_PING_TIMEOUT 1
@@ -2786,6 +2787,7 @@ void interface_trace_setup (void);
 extern struct in_addr limited_broadcast;
 extern int local_family;
 extern struct in_addr local_address;
+extern struct in6_addr local_address6;
 
 extern u_int16_t local_port;
 extern u_int16_t remote_port;

@@ -277,6 +277,7 @@ static struct option server_options[] = {
 	{ "prefix-length-mode", "Nprefix_length_modes.",	&server_universe,  SV_PREFIX_LEN_MODE, 1 },
 	{ "dhcpv6-set-tee-times", "f",		&server_universe,  SV_DHCPV6_SET_TEE_TIMES, 1 },
 	{ "abandon-lease-time", "T",		&server_universe,  SV_ABANDON_LEASE_TIME, 1 },
+	{ "local-address6", "6",		&server_universe,  SV_LOCAL_ADDRESS6, 1 },
 	{ NULL, NULL, NULL, 0, 0 }
 };
 
