@@ -1214,6 +1214,18 @@ void postconf_initialization (int quiet)
 		data_string_forget(&db, MDL);
 	}
 
+    oc = lookup_option(&server_universe, options, SV_LOCAL_ADDRESS6);
+	if (oc) {
+		if (evaluate_option_cache(&db, NULL, NULL, NULL, options, NULL,
+					  &global_scope, oc, MDL)) {
+			if (db.len == 16) {
+				memcpy(&local_address6, db.data, 16);
+			} else 
+			    log_fatal("invalid local-address6 data length");
+			data_string_forget(&db, MDL);
+		}
+	}
+
 	oc = lookup_option(&server_universe, options, SV_DDNS_UPDATE_STYLE);
 	if (oc) {
 		if (evaluate_option_cache(&db, NULL, NULL, NULL, options, NULL,

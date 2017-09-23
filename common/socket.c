@@ -827,6 +827,9 @@ ssize_t send_packet6(struct interface_info *interface,
 	cmsg->cmsg_len = CMSG_LEN(sizeof(*pktinfo));
 	pktinfo = (struct in6_pktinfo *)CMSG_DATA(cmsg);
 	memset(pktinfo, 0, sizeof(*pktinfo));
+
+	// use local-address6
+	pktinfo->ipi6_addr = local_address6;
 	pktinfo->ipi6_ifindex = ifindex;
 
 	result = sendmsg(interface->wfdesc, &m, 0);
